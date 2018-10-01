@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algoframe}
+
+%*************************************************************
+\title{A short algorithm helper}
+\author{sabasallath}
+
+\begin{document}
+\maketitle
+
+\section{Usage}
+
+% todo 
+
+\section{Exemples}
+
+\algoframe{AlgoName}{SomeType $F,\ G$}{$F \times G$}{$F,\ G$}{
+    $\text{SomeType}\ L$ \;
+    \ForAll (\comment{Inner comment}) {$\tau \in F^\tau$} {
+        $L[\tau] \gets G(\tau + F(\tau)) + F(\tau)$ \;
+    }
+    \Return{$L$}
+}
+
+~
+
+\ref{alg:AlgoName}
+
+\end{document}
+

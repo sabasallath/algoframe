@@ -1,0 +1,41 @@
+\ProvidesPackage{algoframe}
+
+\SetKwComment{Comment}{\text{//} }{}
+
+\makeatletter
+% Name of algorithm, input parameter, output, main
+\newcommand*\algoframe[5]{
+\begin{algorithm}[H]
+  \caption{#1}
+  \SetAlgoRefName{alg:#1}
+  \SetKwProg{Fn}{Function}{}{end}
+  \SetKwData{Left}{left}\SetKwData{This}{this}\SetKwData{Up}{up}
+  \SetKwFunction{Union}{Union}\SetKwFunction{FindCompress}{FindCompress}
+  \LinesNumbered
+  \SetKwInOut{Input}{input }
+  \SetKwInOut{Output}{output }
+  \DontPrintSemicolon
+  % Option
+  \Input{#2}
+  \Output{#3}
+  \SetKwFunction{FMain}{#1}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{#4}}{
+      \BlankLine
+      #5
+  }
+\end{algorithm}}
+
+\makeatother
+
+\newcommand*\func[2]{
+  \textsf{\upshape #1}($\text{#2}$)
+}
+
+\newcommand*\objfunc[3]{
+  $\textit{#1}$.\textsf{\upshape #2}($\text{#3}$)
+}
+
+\newcommand*\comment[1]{
+  \Comment*[f]{#1}
+}

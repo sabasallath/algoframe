@@ -5,6 +5,9 @@
 \usepackage{amsmath}
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{algoframe}
+\usepackage{cleveref}
+\usepackage{xcolor}
+\usepackage{listings}
 
 %*************************************************************
 \title{A short algorithm helper}
@@ -13,23 +16,41 @@
 \begin{document}
 \maketitle
 
+\section{Dependencies}
+algorithm2e, cleveref, xcolor
 \section{Usage}
 
-% todo 
+\begin{lstlisting}[basicstyle=\sffamily]
+\algoframe{Name}{Input}{Output}{Input of function}{Content}
+\end{lstlisting}
 
-\section{Exemples}
+\section{Exemple}
 
+\begin{lstlisting}[basicstyle=\sffamily]
 \algoframe{AlgoName}{SomeType $F,\ G$}{$F \times G$}{$F,\ G$}{
     $\text{SomeType}\ L$ \;
-    \ForAll (\comment{Inner comment}) {$\tau \in F^\tau$} {
+    \ForAll (\keycomment{Comment after a keyword}) {$\tau \in F^\tau$} {
         $L[\tau] \gets G(\tau + F(\tau)) + F(\tau)$ \;
     }
+    $L[0] = F[0]$ \comment{Comment after instruction}
     \Return{$L$}
 }
 
+Ref of AlgoName is \ref{alg:AlgoName} or \cref{alg:AlgoName}
+\end{lstlisting}
+
 ~
 
-\ref{alg:AlgoName}
+\algoframe{AlgoName}{SomeType $F,\ G$}{$F \times G$}{$F,\ G$}{
+    $\text{SomeType}\ L$ \;
+    \ForAll (\keycomment{Comment after a keyword}) {$\tau \in F^\tau$} {
+        $L[\tau] \gets G(\tau + F(\tau)) + F(\tau)$ \;
+    }
+    $L[0] = F[0]$ \comment{Comment after instruction}
+    \Return{$L$}
+}
+
+Ref of AlgoName is \ref{alg:AlgoName} or \cref{alg:AlgoName}
 
 \end{document}
 

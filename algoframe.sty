@@ -1,13 +1,19 @@
 \ProvidesPackage{algoframe}
+\RequirePackage{algorithm2e}
+\RequirePackage{cleveref}
+\RequirePackage{xcolor}
 
 \SetKwComment{Comment}{\text{//} }{}
+\definecolor{dgrey}{rgb}{0.20, 0.20, 0.20}
+\newcommand\mycommfont[1]{\textit{\textcolor{dgrey}{#1}}}
+\SetCommentSty{mycommfont}
 
 \makeatletter
 % Name of algorithm, input parameter, output, main
 \newcommand*\algoframe[5]{
 \begin{algorithm}[H]
   \caption{#1}
-  \SetAlgoRefName{alg:#1}
+  \label{alg:#1}
   \SetKwProg{Fn}{Function}{}{end}
   \SetKwData{Left}{left}\SetKwData{This}{this}\SetKwData{Up}{up}
   \SetKwFunction{Union}{Union}\SetKwFunction{FindCompress}{FindCompress}
@@ -36,6 +42,8 @@
   $\textit{#1}$.\textsf{\upshape #2}($\text{#3}$)
 }
 
+\newcommand*\keycomment[1]{\Comment*[f]{#1}}
+
 \newcommand*\comment[1]{
-  \Comment*[f]{#1}
+  \Comment*{#1}
 }
